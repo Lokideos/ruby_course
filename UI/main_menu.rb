@@ -1,6 +1,6 @@
 require_relative '../support/icons.rb'
 
-MENU_ITEMS = {
+MAIN_MENU_ITEMS = {
   1 => "Ruby Lesson 1: Ruby Basics.",
   2 => "Exit the program."
 }
@@ -12,7 +12,7 @@ puts "Please enjoy your stay."
 puts
 
 loop do
-  MENU_ITEMS.each do |key, value|
+  MAIN_MENU_ITEMS.each do |key, value|
     puts "#{key}: #{value}"
   end
 
