@@ -1,0 +1,1 @@
+require_relative 'ideal_weight'
