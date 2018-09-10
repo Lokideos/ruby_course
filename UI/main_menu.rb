@@ -1,4 +1,5 @@
-require_relative '../support/icons.rb'
+require_relative '../support/icons'
+require_relative 'lesson1_ruby_basics_ui'
 
 MAIN_MENU_ITEMS = {
   1 => "Ruby Lesson 1: Ruby Basics.",
@@ -21,7 +22,8 @@ loop do
 
   case menu_choice
   when 1
-    puts "Execute program" #add functionality later
+    puts
+    Lesson1UI.show_menu
   when 2
     puts
     break
