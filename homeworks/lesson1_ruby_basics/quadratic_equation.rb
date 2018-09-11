@@ -10,7 +10,8 @@ class QuadraticEquation
   end
 
   def calculate_roots
-    return [(-@b + Math.sqrt(@D))/2/@a, (-@b - Math.sqrt(@D))/2/@a] if @D > 0
-    -@b/2*@a if @D == 0
+    d_part = Math.sqrt(@D)/2/@a if @D > 0
+    return [-@b + d_part, -@b - d_part] if @D > 0
+    -@b/2/@a if @D == 0
   end
 end
