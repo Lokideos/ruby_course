@@ -21,7 +21,7 @@ class StationUI
       when 1
         StationUIOptions.station_name_prompt
         name = gets.chomp
-        station = Station.new(name)
+        Station.new(name)
       when 2
         chosen_station = find_station
 
