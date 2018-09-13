@@ -1,4 +1,4 @@
-class RubyCourseIcons
+module RubyCourseIcons
   def self.menu_greeting_icon
    %q(                                          
                                          bbbbbbbb                                  
