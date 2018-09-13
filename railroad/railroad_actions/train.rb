@@ -32,10 +32,8 @@ class Train
 
   def move_on_route
     current_position = current_route_stations.find_index(@current_station)
-    transaction do
-      current_route_stations[current_position].departure_of_train(self)
-      current_route_stations[current_position + 1].arrival_of_train(self)
-    end
+    current_route_stations[current_position].departure_of_train(self)
+    current_route_stations[current_position + 1].arrival_of_train(self)
   end
 
   def neighbors_station
