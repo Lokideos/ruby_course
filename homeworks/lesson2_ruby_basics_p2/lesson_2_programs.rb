@@ -1,2 +1,3 @@
 require_relative '30_days_months'
 require_relative 'fill_array_with_designated_range'
+require_relative 'fill_array_with_fibonacci_numbers'
