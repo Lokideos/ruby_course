@@ -22,4 +22,8 @@ class Station
   def departure_of_train(train)
     @trains.delete(train)
   end
+
+  def self.existing_stations
+    @@stations
+  end
 end
