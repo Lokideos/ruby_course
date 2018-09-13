@@ -45,6 +45,7 @@ class Train
     neighbors.push(current_route_stations[current_position - 1]) unless current_position - 1 <= 0
     neighbors.push(current_route_stations[current_position])
     neighbors.push(current_route_stations[current_position + 1]) unless current_position + 1 >= self.route.station.length + 1
+    neighbors
   end
 
   def self.existing_trains
