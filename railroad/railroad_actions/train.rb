@@ -26,23 +26,29 @@ class Train
 
   def assign_route(route)
     @route = route
-    route.stations.first.arrival_of_train(self)
+    current_route_stations.first.arrival_of_train(self)
     @current_station = route.stations.first
   end
 
   def move_on_route
-    current_position = self.route.stations.find_index(@current_station)
+    current_position = current_route_stations.find_index(@current_station)
     transaction do
-      self.route.stations[current_position].departure_of_train(self)
-      self.route.stations[current_position + 1].arrival_of_train(self)
+      current_route_stations[current_position].departure_of_train(self)
+      current_route_stations[current_position + 1].arrival_of_train(self)
     end
   end
 
   def neighbors_station
-    current_position = self.route.stations.find_index(@current_station)
+    current_position = current_route_stations.find_index(@current_station)
     neighbors = []
-    neighbors.push(self.route.stations[current_position - 1]) unless current_position - 1 <= 0
-    neighbors.push(self.route.stations[current_position])
-    neighbors.push(self.route.stations[current_position + 1]) unless current_position + 1 >= self.route.station.length + 1
+    neighbors.push(current_route_stations[current_position - 1]) unless current_position - 1 <= 0
+    neighbors.push(current_route_stations[current_position])
+    neighbors.push(current_route_stations[current_position + 1]) unless current_position + 1 >= self.route.station.length + 1
+  end
+
+  private
+
+  def current_route_stations
+    self.route.stations
   end
 end
