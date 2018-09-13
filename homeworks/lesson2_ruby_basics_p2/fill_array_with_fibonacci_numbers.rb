@@ -1,7 +1,7 @@
 class FillArrayWithFibonacciNumbers
-  FIRST_FIBONACCI_NUMBERS = [0,1,1]
+  FIRST_FIBONACCI_NUMBERS = [0, 1, 1]
 
-  def initialize(upper_limit=100)
+  def initialize(upper_limit = 100)
     @upper_limit = upper_limit
   end
 

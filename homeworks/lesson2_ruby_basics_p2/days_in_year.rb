@@ -1,7 +1,7 @@
 class DaysInYear
   @@months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
-  def initialize (days, months, year)
+  def initialize(days, months, year)
     @days = days
     @months = months
     @year = year

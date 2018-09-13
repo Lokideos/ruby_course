@@ -1,6 +1,6 @@
 class BasketWithGoods
 
-  def initialize(tax=0)
+  def initialize(tax = 0)
     @basket = {}
     @total = 0
     @tax = tax
