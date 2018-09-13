@@ -1,11 +1,14 @@
 class Train
   attr_reader :number, :type, :cars_quantity, :speed, :route
 
+  @@trains = []
+
   def initialize(number, type, cars_quantity)
     @number = number
     @type = type if type == "freight" || type == "passenger"
     @cars_quantity = cars_quantity
     @speed = 0
+    @@trains << self
   end
 
   def increase_speed
@@ -42,6 +45,10 @@ class Train
     neighbors.push(current_route_stations[current_position - 1]) unless current_position - 1 <= 0
     neighbors.push(current_route_stations[current_position])
     neighbors.push(current_route_stations[current_position + 1]) unless current_position + 1 >= self.route.station.length + 1
+  end
+
+  def self.existing_trains
+    @@trains
   end
 
   private
