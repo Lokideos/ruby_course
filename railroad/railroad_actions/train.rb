@@ -33,19 +33,26 @@ class Train
     @current_station = route.stations.first
   end
 
-  def move_on_route(direction)
-    current_position = current_route_stations.find_index(@current_station)
-    current_route_stations[current_position].departure_of_train(self)
-    current_route_stations[current_position + 1].arrival_of_train(self) if direction == "forward"
-    current_route_stations[current_position - 1].arrival_of_train(self) if direction == "back"
+  def move_forward_on_route
+    current_position = position_on_route
+    train_departure(current_position)
+    next_station(current_position).arrival_of_train(self)
+    @current_station = next_station(current_position)
+  end
+
+  def move_back_on_route
+    current_position = position_on_route
+    train_departure(current_position)
+    previous_station(current_position).arrival_of_train(self)
+    @current_station = previous_station(current_position)
   end
 
   def neighbors_station
     current_position = current_route_stations.find_index(@current_station)
     neighbors = []
-    neighbors.push(current_route_stations[current_position - 1]) unless current_position - 1 <= 0
+    neighbors.push(previous_station(current_position)) unless current_position - 1 < 0
     neighbors.push(current_route_stations[current_position])
-    neighbors.push(current_route_stations[current_position + 1]) unless current_position + 1 >= current_route_stations.length + 1
+    neighbors.push(next_station(current_position)) unless current_position + 1 >= current_route_stations.length
     neighbors
   end
 
@@ -57,5 +64,21 @@ class Train
 
   def current_route_stations
     self.route.stations
+  end
+
+  def position_on_route
+    current_route_stations.find_index(@current_station)
+  end
+
+  def train_departure(position)
+    current_route_stations[position].departure_of_train(self)
+  end
+
+  def next_station(position)
+    current_route_stations[position + 1]
+  end
+
+  def previous_station(position)
+    current_route_stations[position - 1]
   end
 end

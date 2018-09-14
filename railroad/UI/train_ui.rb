@@ -143,7 +143,8 @@ class TrainUI
         if chosen_train.route
           TrainUIOptions.choose_direction_on_route_prompt
           direction = gets.chomp
-          chosen_train.move_on_route(direction)
+          chosen_train.move_forward_on_route if direction == "forward"
+          chosen_train.move_back_on_route if direction == "back"
         else
           TrainUIOptions.route_not_assigned_ad
         end
