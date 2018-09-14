@@ -25,6 +25,8 @@ class RailroadUI
         puts
         StationUI.show_menu
       when 3
+        puts
+        RouteUI.show_menu
       when 4
         puts
         break
