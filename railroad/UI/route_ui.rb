@@ -113,6 +113,8 @@ class RouteUI
   end
 
   def self.find_route
+    RouteUIOptions.show_existing_routes_ad
+    Route.existing_routes.each { |route| puts route.name }
     RouteUIOptions.route_name_prompt
     name = gets.chomp
     chosen_route = Route.existing_routes.find { |route| route.name == name }

@@ -4,6 +4,10 @@ class RouteUIOptions
       puts "List of existing stations:"
     end
 
+    def show_existing_routes_ad
+      puts "List of existing routes:"
+    end
+
     def create_route_prompt
       puts %q(
       Please type in names of first station of the route and last station of the route 
