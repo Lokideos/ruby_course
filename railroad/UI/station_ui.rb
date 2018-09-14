@@ -13,6 +13,7 @@ class StationUI
 
   def self.show_menu
     loop do
+      puts "________________________________________________"
       CommonMenuOptions.show_menu_items(STATION_UI_MENU_ITEMS)
       menu_choice = gets.chomp.to_i
       puts
