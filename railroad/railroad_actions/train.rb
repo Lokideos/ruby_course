@@ -5,7 +5,7 @@ class Train
 
   def initialize(number, type, cars_quantity)
     @number = number
-    @type = type if type == "freight" || type == "passenger"
+    type == "passenger" ? @type = type : @type = "freight"
     @cars_quantity = cars_quantity
     @speed = 0
     @@trains << self
