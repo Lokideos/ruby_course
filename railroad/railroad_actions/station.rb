@@ -14,9 +14,7 @@ class Station
   end
 
   def trains_of_type(train_type)
-    trains_of_type = []
-    @trains.each { |train| trains_of_type.push(train) if train.type == train_type }
-    trains_of_type
+    @trains.select { |train| train.type == train_type }
   end
 
   def departure_of_train(train)
