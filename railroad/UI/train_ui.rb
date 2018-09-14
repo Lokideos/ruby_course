@@ -89,7 +89,7 @@ class TrainUI
 
         if chosen_train.speed == 0
           TrainUIOptions.car_atttached_ad
-          chosen_train.cars_quantity += 1
+          chosen_train.attach_car
         else
           TrainUIOptions.high_speed_warning
         end
@@ -105,7 +105,7 @@ class TrainUI
 
         if chosen_train.speed == 0 && chosen_train.cars_quantity > 0
           TrainUIOptions.car_detached_ad
-          chosen_train.cars_quantity -= 1
+          chosen_train.detach_car
         else
           TrainUIOptions.high_speed_warning
         end
