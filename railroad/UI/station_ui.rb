@@ -101,7 +101,7 @@ class StationUI
     StationUIOptions.station_name_prompt
     name = gets.chomp
     chosen_station = nil
-    Station.existing_stations.each { |station| chosed_station = station if station.name == name }
+    Station.existing_stations.each { |station| chosen_station = station if station.name == name }
     chosen_station
   end
 end
