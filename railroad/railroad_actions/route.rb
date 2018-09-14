@@ -14,10 +14,20 @@ class Route
   end
 
   def remove_station(station)
-    @stations.delete(station) unless station == @station[0] || station == @station[-1]
+    @stations.delete(station) unless first_station?(station) || last_station?(station)
   end
 
   def self.existing_routes
     @@routes
+  end
+
+  private
+
+  def first_station?(station)
+    station == @stations[0]
+  end
+
+  def last_station?(station)
+    station == @stations[-1]
   end
 end
