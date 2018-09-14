@@ -32,7 +32,7 @@ class TrainUI
       when 2
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -44,7 +44,7 @@ class TrainUI
       when 3
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -56,7 +56,7 @@ class TrainUI
       when 4
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -68,7 +68,7 @@ class TrainUI
       when 5
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -80,7 +80,7 @@ class TrainUI
       when 6
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -96,7 +96,7 @@ class TrainUI
       when 7
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -112,7 +112,7 @@ class TrainUI
       when 8
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -133,7 +133,7 @@ class TrainUI
       when 9
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts
@@ -150,7 +150,7 @@ class TrainUI
       when 10
         chosen_train = find_train
         #find a way to move nil check to private methods
-        if chosen_train == nil
+        unless chosen_train
           puts
           TrainUIOptions.train_does_not_exist
           puts

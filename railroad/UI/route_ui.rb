@@ -35,7 +35,7 @@ class RouteUI
         chosen_route = find_route
 
         #find a way to move nil check to private methods
-        if chosen_route == nil
+        unless chosen_route
           puts
           RouteUIOptions.route_does_not_exist
           puts
@@ -57,7 +57,7 @@ class RouteUI
         chosen_route = find_route
 
         #find a way to move nil check to private methods
-        if chosen_route == nil
+        unless chosen_route
           puts
           RouteUIOptions.route_does_not_exist
           puts
@@ -78,7 +78,7 @@ class RouteUI
         chosen_route = find_route
 
         #find a way to move nil check to private methods
-        if chosen_route == nil
+        unless chosen_route
           puts
           RouteUIOptions.route_does_not_exist
           puts

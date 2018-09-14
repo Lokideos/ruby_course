@@ -26,7 +26,7 @@ class StationUI
         chosen_station = find_station
 
         #find a way to move nil check to private methods
-        if chosen_station == nil
+        unless chosen_station
           puts
           StationUIOptions.station_does_not_exist
           puts
@@ -41,7 +41,7 @@ class StationUI
         chosen_station = find_station
 
         #find a way to move nil check to private methods
-        if chosen_station == nil
+        unless chosen_station
           puts
           StationUIOptions.station_does_not_exist
           puts
@@ -56,7 +56,7 @@ class StationUI
         chosen_station = find_station
 
         #find a way to move nil check to private methods
-        if chosen_station == nil
+        unless chosen_station
           puts
           StationUIOptions.station_does_not_exist
           puts
@@ -69,7 +69,7 @@ class StationUI
         chosen_station = find_station
 
         #find a way to move nil check to private methods
-        if chosen_station == nil
+        unless chosen_station
           puts
           StationUIOptions.station_does_not_exist
           puts
