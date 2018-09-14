@@ -35,16 +35,22 @@ class Train
 
   def move_forward_on_route
     current_position = position_on_route
-    train_departure(current_position)
-    next_station(current_position).arrival_of_train(self)
-    @current_station = next_station(current_position)
+
+    if next_station_exists?(current_position)
+      train_departure(current_position)
+      next_station(current_position).arrival_of_train(self)
+      @current_station = next_station(current_position)
+    end
   end
 
   def move_back_on_route
     current_position = position_on_route
-    train_departure(current_position)
-    previous_station(current_position).arrival_of_train(self)
-    @current_station = previous_station(current_position)
+
+   if previous_station_exists?(current_position)
+      train_departure(current_position)
+      previous_station(current_position).arrival_of_train(self)
+      @current_station = previous_station(current_position)
+    end
   end
 
   def neighbors_station
@@ -80,5 +86,13 @@ class Train
 
   def previous_station(position)
     current_route_stations[position - 1]
+  end
+
+  def next_station_exists?(train_position)
+    train_position + 1 < current_route_stations.length
+  end
+
+  def previous_station_exists?(train_position)
+    train_position - 1 >= 0
   end
 end
