@@ -5,7 +5,7 @@ class Route
 
   def initialize(first_station, last_station)
     @stations=[first_station, last_station]
-    @name = "#{first_station} - #{last_station}"
+    @name = "#{first_station.name} - #{last_station.name}"
     @@routes << self
   end
 
