@@ -35,8 +35,7 @@ class StationUI
 
         StationUIOptions.train_number_for_arriving_prompt
         number = gets.chomp
-        chosen_train = nil
-        Train.existing_trains.each { |train| chosen_train = train if train.number == number }
+        chosen_train = Train.existing_trains.find { |train| train.number == number }
         chosen_station.arrival_of_train(chosen_train)
       when 3
         chosen_station = find_station
@@ -51,8 +50,7 @@ class StationUI
 
         StationUIOptions.train_number_for_departure_prompt
         number = gets.chomp
-        chosen_train = nil
-        chosen_station.trains.each { |train| chosen_train = train if train.number == number }
+        chosen_train = chosen_station.trains.find { |train| train.number == number }
         chosen_station.departure_of_train(chosen_train) if chosen_train
       when 4
         chosen_station = find_station
@@ -100,8 +98,6 @@ class StationUI
   def self.find_station
     StationUIOptions.station_name_prompt
     name = gets.chomp
-    chosen_station = nil
-    Station.existing_stations.each { |station| chosen_station = station if station.name == name }
-    chosen_station
+    chosen_station = Station.existing_stations.find { |station| station.name == name }
   end
 end

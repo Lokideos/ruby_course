@@ -23,8 +23,8 @@ class RouteUI
         RouteUIOptions.create_route_prompt
         first_station = gets.chomp
         second_station = gets.chomp
-        Station.existing_stations.each { |station| first_station = station if station.name == first_station }
-        Station.existing_stations.each { |station| second_station = station if station.name == second_station }
+        first_station = Station.existing_stations.find { |station| station.name == first_station }
+        second_station = Station.existing_stations.find { |station| station.name == second_station }
         if first_station.class.to_s == "Station" && second_station.class.to_s == "Station"
           Route.new(first_station, second_station)
           RouteUIOptions.route_created_ad
@@ -46,7 +46,7 @@ class RouteUI
         RouteUI.show_existing_stations
         RouteUIOptions.add_station_to_route_prompt
         chosen_station = gets.chomp
-        Station.existing_stations.each { |station| chosen_station = station if station.name == chosen_station }
+        chosen_station = Station.existing_stations.find { |station| station.name == chosen_station }
         if chosen_station.class.to_s == "Station"
           RouteUIOptions.station_add_to_route_ad
           chosen_route.add_station(chosen_station)
@@ -67,7 +67,7 @@ class RouteUI
         RouteUI.show_stations_on_route(chosen_route)
         RouteUIOptions.choose_station_to_delete_prompt
         chosen_station = gets.chomp
-        chosen_route.stations.each { |station| chosen_station = station if station.name == chosen_station }
+        chosen_station = chosen_route.stations.find { |station| station.name == chosen_station }
         if chosen_station.class.to_s == "Station" 
           RouteUIOptions.station_deleted_ad
           chosen_route.stations.each { |station| chosen_route.remove_station(chosen_station) }
@@ -114,8 +114,6 @@ class RouteUI
   def self.find_route
     RouteUIOptions.route_name_prompt
     name = gets.chomp
-    chosen_route = nil
-    Route.existing_routes.each { |route| chosen_route = route if route.name == name }
-    chosen_route
+    chosen_route = Route.existing_routes.find { |route| route.name == name }
   end
 end

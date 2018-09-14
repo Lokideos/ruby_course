@@ -123,7 +123,7 @@ class TrainUI
         TrainUIOptions.show_routes_ad
         Route.existing_routes.each { |route| puts route.name }
         chosen_route = gets.chomp
-        Route.existing_routes.each { |route| chosen_route = route if route.name == chosen_route }
+        chosen_route = Route.existing_routes.find { |route| route.name == chosen_route }
         if chosen_route.class.to_s == "Route"
           chosen_train.assign_route(chosen_route)
           TrainUIOptions.route_assigned_ad
@@ -182,8 +182,6 @@ class TrainUI
   def self.find_train
     TrainUIOptions.train_number_prompt
     number = gets.chomp
-    chosen_train = nil
-    Train.existing_trains.each { |train| chosen_train = train if train.number == number }
-    chosen_train
+    chosen_train = Train.existing_trains.find { |train| train.number == number }
   end
 end

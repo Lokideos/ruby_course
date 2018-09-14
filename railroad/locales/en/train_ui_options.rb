@@ -71,4 +71,8 @@ class TrainUIOptions
   def self.nearby_stations_ad
     puts "List of nearby stations on the route:"
   end
+
+  def self.choose_direction_on_route_prompt
+    puts "Please type in direction in which you want to move on the current route."
+  end
 end
