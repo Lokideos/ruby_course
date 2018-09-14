@@ -37,7 +37,7 @@ class StationUI
         number = gets.chomp
         chosen_train = nil
         Train.existing_trains.each { |train| chosen_train = train if train.number == number }
-        chosen.station.arrival_of_train(train)
+        chosen_station.arrival_of_train(chosen_train)
       when 3
         chosen_station = find_station
 
@@ -53,7 +53,7 @@ class StationUI
         number = gets.chomp
         chosen_train = nil
         chosen_station.trains.each { |train| chosen_train = train if train.number == number }
-        chosen.station.departure_of_train(train) if chosen_train
+        chosen_station.departure_of_train(chosen_train) if chosen_train
       when 4
         chosen_station = find_station
 
