@@ -33,10 +33,11 @@ class Train
     @current_station = route.stations.first
   end
 
-  def move_on_route
+  def move_on_route(direction)
     current_position = current_route_stations.find_index(@current_station)
     current_route_stations[current_position].departure_of_train(self)
-    current_route_stations[current_position + 1].arrival_of_train(self)
+    current_route_stations[current_position + 1].arrival_of_train(self) if direction == "forward"
+    current_route_stations[current_position - 1].arrival_of_train(self) if direction == "back"
   end
 
   def neighbors_station
