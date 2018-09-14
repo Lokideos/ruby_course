@@ -19,6 +19,8 @@ class RailroadUI
 
       case menu_choice
       when 1
+        puts
+        TrainUI.show_menu
       when 2
         puts
         StationUI.show_menu
