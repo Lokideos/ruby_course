@@ -45,4 +45,8 @@ class RouteUIOptions
   def self.show_existing_routes_ad
     puts "List of existing routes:"
   end
+
+  def self.add_station_to_route_prompt
+    puts "Please type in name of the station you want to add to the route."
+  end
 end

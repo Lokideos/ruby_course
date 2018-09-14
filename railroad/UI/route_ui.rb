@@ -64,7 +64,7 @@ class RouteUI
           break
         end
 
-        RouteUI.show_stations_on_route
+        RouteUI.show_stations_on_route(chosen_route)
         RouteUIOptions.choose_station_to_delete_prompt
         chosen_station = gets.chomp
         chosen_route.stations.each { |station| chosen_station = station if station.name == chosen_station }
@@ -85,7 +85,7 @@ class RouteUI
           break
         end
 
-        RouteUI.show_stations_on_route
+        RouteUI.show_stations_on_route(chosen_route)
       when 5
         RouteUIOptions.show_existing_routes_ad
         Route.existing_routes.each { |route| puts route.name }
@@ -106,7 +106,7 @@ class RouteUI
     Station.existing_stations.each { |station| puts station.name }
   end
 
-  def self.show_stations_on_route
+  def self.show_stations_on_route(chosen_route)
     RouteUIOptions.show_route_stations_ad
     chosen_route.stations.each { |station| puts station.name }
   end
