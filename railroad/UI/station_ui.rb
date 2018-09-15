@@ -20,7 +20,7 @@ class StationUI
 
       case menu_choice
       when 1
-        StationUIOptions.station_name_prompt
+        puts StationUIOptions.station_name_prompt
         name = gets.chomp
         Station.new(name)
       when 2
@@ -29,12 +29,12 @@ class StationUI
         #find a way to move nil check to private methods
         unless chosen_station
           puts
-          StationUIOptions.station_does_not_exist
+          puts StationUIOptions.station_does_not_exist
           puts
           break
         end
 
-        StationUIOptions.train_number_for_arriving_prompt
+        puts StationUIOptions.train_number_for_arriving_prompt
         number = gets.chomp
         chosen_train = Train.existing_trains.find { |train| train.number == number }
         chosen_station.arrival_of_train(chosen_train)
@@ -44,12 +44,12 @@ class StationUI
         #find a way to move nil check to private methods
         unless chosen_station
           puts
-          StationUIOptions.station_does_not_exist
+          puts StationUIOptions.station_does_not_exist
           puts
           break
         end
 
-        StationUIOptions.train_number_for_departure_prompt
+        puts StationUIOptions.train_number_for_departure_prompt
         number = gets.chomp
         chosen_train = chosen_station.trains.find { |train| train.number == number }
         chosen_station.departure_of_train(chosen_train) if chosen_train
@@ -59,12 +59,12 @@ class StationUI
         #find a way to move nil check to private methods
         unless chosen_station
           puts
-          StationUIOptions.station_does_not_exist
+          puts StationUIOptions.station_does_not_exist
           puts
           break
         end
 
-        StationUIOptions.trains_on_station_ad
+        puts StationUIOptions.trains_on_station_ad
         chosen_station.trains.each { |train| puts train.number }
       when 5
         chosen_station = find_station
@@ -72,16 +72,16 @@ class StationUI
         #find a way to move nil check to private methods
         unless chosen_station
           puts
-          StationUIOptions.station_does_not_exist
+          puts StationUIOptions.station_does_not_exist
           puts
           break
         end
 
-        StationUIOptions.trains_on_station_by_type_prompt
+        puts StationUIOptions.trains_on_station_by_type_prompt
         chosen_type = gets.chomp
         chosen_station.trains.each { |train| puts train.number if train.type == chosen_type }
       when 6
-        StationUIOptions.show_stations
+        puts StationUIOptions.show_stations
         Station.existing_stations.each { |station| puts station.name }
         puts
       when 7
@@ -97,7 +97,7 @@ class StationUI
   private
 
   def self.find_station
-    StationUIOptions.station_name_prompt
+    puts StationUIOptions.station_name_prompt
     name = gets.chomp
     chosen_station = Station.existing_stations.find { |station| station.name == name }
   end

@@ -25,7 +25,7 @@ class TrainUI
 
       case menu_choice
       when 1
-        TrainUIOptions.train_creation_prompt
+        puts TrainUIOptions.train_creation_prompt
         number = gets.chomp
         type = gets.chomp
         cars_quantity = gets.chomp.to_i
@@ -35,138 +35,138 @@ class TrainUI
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
-        TrainUIOptions.speed_up_ad
+        puts TrainUIOptions.speed_up_ad
         chosen_train.increase_speed
       when 3
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
-        TrainUIOptions.current_speed_ad
+        print TrainUIOptions.current_speed_ad
         puts chosen_train.speed
       when 4
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
-        TrainUIOptions.speed_down_ad
+        puts TrainUIOptions.speed_down_ad
         chosen_train.decrease_speed
       when 5
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
-        TrainUIOptions.show_cars_quantity_ad
+        puts TrainUIOptions.show_cars_quantity_ad
         puts chosen_train.cars_quantity
       when 6
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
         if chosen_train.speed == 0
-          TrainUIOptions.car_atttached_ad
+          puts TrainUIOptions.car_atttached_ad
           chosen_train.attach_car
         else
-          TrainUIOptions.high_speed_warning
+          puts TrainUIOptions.high_speed_warning
         end
       when 7
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
         if chosen_train.speed == 0 && chosen_train.cars_quantity > 0
-          TrainUIOptions.car_detached_ad
+          puts TrainUIOptions.car_detached_ad
           chosen_train.detach_car
         else
-          TrainUIOptions.high_speed_warning
+          puts TrainUIOptions.high_speed_warning
         end
       when 8
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
-        TrainUIOptions.choose_route_prompt
-        TrainUIOptions.show_routes_ad
+        puts TrainUIOptions.choose_route_prompt
+        puts TrainUIOptions.show_routes_ad
         Route.existing_routes.each { |route| puts route.name }
         chosen_route = gets.chomp
         chosen_route = Route.existing_routes.find { |route| route.name == chosen_route }
         if chosen_route.class.to_s == "Route"
           chosen_train.assign_route(chosen_route)
-          TrainUIOptions.route_assigned_ad
+          puts TrainUIOptions.route_assigned_ad
         else
-          TrainUIOptions.route_doesn_not_exist
+          puts TrainUIOptions.route_doesn_not_exist
         end
       when 9
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
         if chosen_train.route
-          TrainUIOptions.choose_direction_on_route_prompt
+          puts TrainUIOptions.choose_direction_on_route_prompt
           direction = gets.chomp
           chosen_train.move_forward_on_route if direction == "forward"
           chosen_train.move_back_on_route if direction == "back"
         else
-          TrainUIOptions.route_not_assigned_ad
+          puts TrainUIOptions.route_not_assigned_ad
         end
       when 10
         chosen_train = find_train
         #find a way to move nil check to private methods
         unless chosen_train
           puts
-          TrainUIOptions.train_does_not_exist
+          puts TrainUIOptions.train_does_not_exist
           puts
           break
         end
 
         if chosen_train.route
-          TrainUIOptions.nearby_stations_ad
+          puts TrainUIOptions.nearby_stations_ad
           chosen_train.neighbors_station.each { |station| puts station.name }
         else
-          TrainUIOptions.route_not_assigned_ad
+          puts TrainUIOptions.route_not_assigned_ad
         end
       when 11
-        TrainUIOptions.show_existing_trains_ad
+        puts TrainUIOptions.show_existing_trains_ad
         Train.existing_trains.each { |train| puts train.number }
         puts
       when 12
@@ -182,7 +182,7 @@ class TrainUI
   private
 
   def self.find_train
-    TrainUIOptions.train_number_prompt
+    puts TrainUIOptions.train_number_prompt
     number = gets.chomp
     chosen_train = Train.existing_trains.find { |train| train.number == number }
   end
