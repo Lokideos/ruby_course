@@ -1,11 +1,13 @@
 require_relative '../support/icons'
 require_relative 'lesson1_ruby_basics_ui'
 require_relative 'lesson2_ruby_basics_p2_ui'
+require_relative '../railroad/UI/railroad_main_menu'
 
 MAIN_MENU_ITEMS = {
   1 => "Ruby Lesson 1: Ruby Basics.",
   2 => "Ruby Lesson 2: Ruby Basics, part 2.",
-  3 => "Exit the program."
+  3 => "Ruby Lesson 3+: Railroad application.",
+  4 => "Exit the program."
 }
 
 puts RubyCourseIcons.menu_greeting_icon
@@ -30,6 +32,9 @@ loop do
     puts
     Lesson2UI.show_menu
   when 3
+    puts
+    RailroadUI.show_menu
+  when 4
     puts
     break
   else
