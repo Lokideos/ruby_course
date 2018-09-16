@@ -48,6 +48,10 @@ puts "Cargo car number: #{cargo_car1.number}"
 puts "Cargo car type: #{cargo_car1.type}"
 puts "____________________________________________________"
 
+puts "Show existing cars"
+puts "#{Car.cars}"
+puts "____________________________________________________"
+
 #station tests
 # station = Station.new("spb")
 # puts station
