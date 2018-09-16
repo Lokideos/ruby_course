@@ -76,7 +76,7 @@ class TrainUI
         end
 
         puts TrainUIOptions.show_attached_cars_ad
-        puts chosen_train.cars.each { |car| puts "#{car.number}: #{car.type} car." }
+        chosen_train.cars.each { |car| puts "#{car.number}: #{car.type} car." }
       when 6
         chosen_train = find_train
         #find a way to move nil check to private methods
@@ -88,7 +88,7 @@ class TrainUI
         end
 
         puts TrainUIOptions.available_cars_list_ad
-        puts Car.cars.each { |car| puts "#{car.number}: #{car.type} car" }
+        Car.cars.each { |car| puts "#{car.number}: #{car.type} car" }
         puts
         puts TrainUIOptions.choose_car_to_operate_with_prompt
         chosen_car = gets.chomp
@@ -111,7 +111,7 @@ class TrainUI
         end
 
         puts TrainUIOptions.available_cars_list_ad
-        puts chosen_train.cars.each { |car| puts "#{car.number}"}
+        chosen_train.cars.each { |car| puts "#{car.number}"}
         puts
         puts TrainUIOptions.choose_car_to_operate_with_prompt
         chosen_car = gets.chomp
