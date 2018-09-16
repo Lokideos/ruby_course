@@ -18,7 +18,7 @@ class CarUI
         puts CarUIOptions.add_car_prompt
         number = gets.chomp
         type = gets.chomp
-        type = "passenger" ? PassengerCar.new(number, type) : CargoCar.new(number, type)      
+        type == "passenger" ? PassengerCar.new(number, type) : CargoCar.new(number, type)      
       when 2
         puts
         break
