@@ -1,13 +1,13 @@
 class Train
-  attr_reader :number, :type, :cars_quantity, :speed, :route
+  attr_reader :number, :type, :speed, :route, :cars
 
   @@trains = []
 
-  def initialize(number, type, cars_quantity)
+  def initialize(number, type)
     @number = number
     type == "passenger" ? @type = type : @type = "cargo"
-    @cars_quantity = cars_quantity
     @speed = 0
+    @cars = []
     @@trains << self
   end
 
@@ -19,12 +19,12 @@ class Train
     @speed -= 10 unless @speed == 0
   end
 
-  def attach_car
-    @cars_quantity +=1 if @speed == 0
+  def attach_car(car)
+    @cars.push(car) if can_attach_or_detach_car?(car)
   end
 
   def detach_car
-    @cars_quantity -=1 if @speed == 0
+    @cars.push(car) if can_attach_or_detach_car?(car)
   end
 
   def assign_route(route)
@@ -94,5 +94,9 @@ class Train
 
   def previous_station_exists?(train_position)
     train_position - 1 >= 0
+  end
+
+  def can_attach_or_detach_car?(car)
+    self.speed == 0 && car.type.to_s == self.type.to_s
   end
 end
