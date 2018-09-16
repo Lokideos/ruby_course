@@ -19,12 +19,18 @@ class Train
     @speed -= 10 unless @speed == 0
   end
 
+  def can_attach_or_detach_car?(car)
+    if car
+      self.speed == 0 && car.type.to_s == self.type.to_s
+    end
+  end
+
   def attach_car(car)
     @cars.push(car) if can_attach_or_detach_car?(car)
   end
 
-  def detach_car
-    @cars.push(car) if can_attach_or_detach_car?(car)
+  def detach_car(car)
+    @cars.delete(car) if can_attach_or_detach_car?(car)
   end
 
   def assign_route(route)
@@ -94,9 +100,5 @@ class Train
 
   def previous_station_exists?(train_position)
     train_position - 1 >= 0
-  end
-
-  def can_attach_or_detach_car?(car)
-    self.speed == 0 && car.type.to_s == self.type.to_s
   end
 end
