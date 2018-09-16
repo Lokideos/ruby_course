@@ -29,7 +29,7 @@ class TrainUI
         number = gets.chomp
         type = gets.chomp
         cars_quantity = gets.chomp.to_i
-        type == "passenger" ? PassengerTrain.new(number, type, cars_quantity) : Train.new(number, "freight", cars_quantity)
+        type == "passenger" ? PassengerTrain.new(number, type, cars_quantity) : CargoTrain.new(number, "cargo", cars_quantity)
       when 2
         chosen_train = find_train
         #find a way to move nil check to private methods

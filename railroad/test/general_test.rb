@@ -21,6 +21,14 @@ puts "Passenger train type: #{passenger_train1.type}"
 puts "Passenger train cars quantity: #{passenger_train1.cars_quantity}"
 puts "____________________________________________________"
 
+puts "Create Passenger type train"
+cargo_train1 = CargoTrain.new(3, "cargo", 10)
+puts cargo_train1
+puts "Cargo train number: #{cargo_train1.number}"
+puts "Cargo train type: #{cargo_train1.type}"
+puts "Cargo train cars quantity: #{cargo_train1.cars_quantity}"
+puts "____________________________________________________"
+
 #station tests
 # station = Station.new("spb")
 # puts station
