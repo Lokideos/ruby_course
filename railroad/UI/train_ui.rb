@@ -6,7 +6,7 @@ class TrainUI
     2 => "Increase train speed.",
     3 => "Show current train speed.",
     4 => "Decrease train speed.",
-    5 => "Show cars quantity.",
+    5 => "Show attached cars.",
     6 => "Attach car.",
     7 => "Detach car.",
     8 => "Assign route.",
@@ -28,8 +28,7 @@ class TrainUI
         puts TrainUIOptions.train_creation_prompt
         number = gets.chomp
         type = gets.chomp
-        cars_quantity = gets.chomp.to_i
-        type == "passenger" ? PassengerTrain.new(number, type, cars_quantity) : CargoTrain.new(number, "cargo", cars_quantity)
+        type == "passenger" ? PassengerTrain.new(number, type) : CargoTrain.new(number, "cargo")
       when 2
         chosen_train = find_train
         #find a way to move nil check to private methods
@@ -76,8 +75,8 @@ class TrainUI
           break
         end
 
-        puts TrainUIOptions.show_cars_quantity_ad
-        puts chosen_train.cars_quantity
+        puts TrainUIOptions.show_attached_cars_ad
+        puts chosen_train.cars.each { |car| puts "#{car.number}: #{car.type} car." }
       when 6
         chosen_train = find_train
         #find a way to move nil check to private methods
@@ -88,11 +87,18 @@ class TrainUI
           break
         end
 
-        if chosen_train.speed == 0
+        puts TrainUIOptions.available_cars_list_ad
+        puts Car.cars.each { |car| puts "#{car.number}: #{car.type} car" }
+        puts
+        puts TrainUIOptions.choose_car_to_operate_with_prompt
+        chosen_car = gets.chomp
+        chosen_car = Car.cars.find { |car| car.number == chosen_car }
+
+        if chosen_train.can_attach_or_detach_car?(chosen_car)
           puts TrainUIOptions.car_atttached_ad
-          chosen_train.attach_car
+          chosen_train.attach_car(chosen_car)
         else
-          puts TrainUIOptions.high_speed_warning
+          puts TrainUIOptions.cars_operations_problem_ad
         end
       when 7
         chosen_train = find_train
@@ -104,11 +110,17 @@ class TrainUI
           break
         end
 
-        if chosen_train.speed == 0 && chosen_train.cars_quantity > 0
+        puts TrainUIOptions.available_cars_list_ad
+        puts chosen_train.cars.each { |car| puts "#{car.number}"}
+        puts
+        puts TrainUIOptions.choose_car_to_operate_with_prompt
+        chosen_car = gets.chomp
+        chosen_car = chosen_train.cars.find { |car| car.number == chosen_car }
+        if chosen_train.can_attach_or_detach_car?(chosen_car)
           puts TrainUIOptions.car_detached_ad
-          chosen_train.detach_car
+          chosen_train.detach_car(chosen_car)
         else
-          puts TrainUIOptions.high_speed_warning
+          puts TrainUIOptions.cars_operations_problem_ad
         end
       when 8
         chosen_train = find_train
