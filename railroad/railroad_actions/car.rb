@@ -8,4 +8,8 @@ class Car
     type == "passenger" ? @type = type : @type = "cargo"
     @@cars << self
   end
+
+  def self.cars
+    @@cars
+  end
 end
