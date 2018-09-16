@@ -1,4 +1,4 @@
-class TrainUIOptions
+module TrainUIOptions
   class << self
     def train_creation_prompt
       %q(

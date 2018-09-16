@@ -1,4 +1,4 @@
-class CarUIOptions
+module CarUIOptions
   class << self
 
     def add_car_prompt
