@@ -1,6 +1,7 @@
 require_relative 'train_ui'
 require_relative 'station_ui'
 require_relative 'route_ui'
+require_relative 'car_ui'
 require_relative '../locales/en'
 
 class RailroadUI
@@ -8,7 +9,8 @@ class RailroadUI
     1 => "Manage trains",
     2 => "Manage stations",
     3 => "Manage routes",
-    4 => "Back to main menu."
+    4 => "Manage cars.",
+    5 => "Back to main menu."
   }
 
   def self.show_menu
@@ -28,6 +30,9 @@ class RailroadUI
         puts
         RouteUI.show_menu
       when 4
+        puts
+        CarUI.show_menu
+      when 5
         puts
         break
       else

@@ -1,4 +1,4 @@
-class StationUIOptions
+module StationUIOptions
   class << self 
     def station_name_prompt
       "Please type in name of a station."

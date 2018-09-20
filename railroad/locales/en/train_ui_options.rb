@@ -1,10 +1,10 @@
-class TrainUIOptions
+module TrainUIOptions
   class << self
     def train_creation_prompt
       %q(
       In order to create new train
       you have to type in train's number, 
-      type, which have to be 'freight' or 'passenger',
+      type, which have to be 'cargo' or 'passenger',
       and cars' quantity in the respective order:
       )
     end
@@ -33,8 +33,8 @@ class TrainUIOptions
       "Train's current speed:"
     end
 
-    def show_cars_quantity_ad
-      "Train's current cars' quantity:"
+    def show_attached_cars_ad
+      "Train's current attached cars:"
     end
 
     def car_atttached_ad
@@ -45,8 +45,8 @@ class TrainUIOptions
       "Car has been successfully detached from this train."
     end
 
-    def high_speed_warning
-      "Speed of the train is too high for this operation. Try to change it to 0."
+    def cars_operations_problem_ad
+      "Speed of the train is too high for this operation or car you want to operate with does not exist."
     end
 
     def choose_route_prompt
@@ -75,6 +75,14 @@ class TrainUIOptions
 
     def choose_direction_on_route_prompt
       "Please type in direction in which you want to move on the current route."
+    end
+
+    def available_cars_list_ad
+      "List of available cars:"
+    end
+
+    def choose_car_to_operate_with_prompt
+      "Please type in number of car you want to operate with:"
     end
   end
 end
