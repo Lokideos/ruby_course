@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class Truck < Car
-  def loading
-  end
+  def loading; end
 
   protected
 

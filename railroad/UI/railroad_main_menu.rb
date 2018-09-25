@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'train_ui'
 require_relative 'station_ui'
 require_relative 'route_ui'
@@ -6,12 +8,12 @@ require_relative '../locales/en'
 
 class RailroadUI
   RAILROAD_MAIN_MENU_ITEMS = {
-    1 => "Manage trains",
-    2 => "Manage stations",
-    3 => "Manage routes",
-    4 => "Manage cars.",
-    5 => "Back to main menu."
-  }
+    1 => 'Manage trains',
+    2 => 'Manage stations',
+    3 => 'Manage routes',
+    4 => 'Manage cars.',
+    5 => 'Back to main menu.'
+  }.freeze
 
   def self.show_menu
     loop do

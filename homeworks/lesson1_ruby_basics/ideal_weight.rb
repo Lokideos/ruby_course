@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class IdealWeight
   def initialize(name, height)
     @name = name

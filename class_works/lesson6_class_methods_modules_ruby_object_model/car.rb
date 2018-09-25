@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
 module FuelTank
   def fill_tank(level)
     self.fuel_tank = level
   end
 
   def fuel_level
-    self.fuel_tank
+    fuel_tank
   end
 
   protected
+
   attr_accessor :fuel_tank
 end
 
@@ -77,7 +80,6 @@ class Car
     self.current_rpm = initial_rpm
   end
 end
-
 
 class MotorBike
   include FuelTank

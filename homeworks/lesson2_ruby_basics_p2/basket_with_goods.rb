@@ -1,5 +1,6 @@
-class BasketWithGoods
+# frozen_string_literal: true
 
+class BasketWithGoods
   def initialize(tax = 0)
     @basket = {}
     @total = 0
@@ -8,9 +9,10 @@ class BasketWithGoods
 
   def fill_with_goods
     loop do
-      puts "Type in product name:"
+      puts 'Type in product name:'
       product = gets.chomp
-      break if product.downcase == "stop"
+      break if product.casecmp('stop').zero?
+
       puts "Type in price for #{product}:"
       price = gets.chomp.to_i
       puts "Type in quantity of #{product}:"
@@ -23,9 +25,9 @@ class BasketWithGoods
 
   def show_goods
     @basket.each do |product, price_information|
-      puts %Q(
+      puts %(
       ____________________________________________________________________
-      #{product}: 
+      #{product}:
       price for each item: #{price_information[:price]},
       quantity of #{product}: #{price_information[:quantity]},
       total price for #{product}: #{price_information[:product_total]}

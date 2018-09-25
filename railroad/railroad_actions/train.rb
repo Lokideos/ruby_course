@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Train
   attr_reader :number, :type, :speed, :route, :cars
 
@@ -5,7 +7,7 @@ class Train
 
   def initialize(number, type)
     @number = number
-    type == "passenger" ? @type = type : @type = "cargo"
+    @type = type == 'passenger' ? type : 'cargo'
     @speed = 0
     @cars = []
     @@trains << self
@@ -20,9 +22,7 @@ class Train
   end
 
   def can_attach_or_detach_car?(car)
-    if car
-      self.speed == 0 && car.type.to_s == self.type.to_s
-    end
+    speed == 0 && car.type.to_s == type.to_s if car
   end
 
   def attach_car(car)
@@ -52,11 +52,11 @@ class Train
   def move_back_on_route
     current_position = position_on_route
 
-   if previous_station_exists?(current_position)
+    if previous_station_exists?(current_position)
       train_departure(current_position)
       previous_station(current_position).arrival_of_train(self)
       @current_station = previous_station(current_position)
-    end
+     end
   end
 
   def neighbors_station
@@ -75,7 +75,7 @@ class Train
   private
 
   def current_route_stations
-    self.route.stations
+    route.stations
   end
 
   def position_on_route

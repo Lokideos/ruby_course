@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DaysInYear
   @@months = [31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -8,8 +10,8 @@ class DaysInYear
   end
 
   def number
-    leap_year? ? @@months[1] = 29 : @@months[1] = 28    
-    (0..@months-1).each { |month_number| @days += @@months[month_number] }    
+    @@months[1] = leap_year? ? 29 : 28
+    (0..@months - 1).each { |month_number| @days += @@months[month_number] }
     @days
   end
 

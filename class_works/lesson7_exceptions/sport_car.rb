@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class SportCar < Car
   def start_engine
-    puts "Click!!"
+    puts 'Click!!'
     super
-    puts "Wroom!!"
+    puts 'Wroom!!'
   end
 
   protected
