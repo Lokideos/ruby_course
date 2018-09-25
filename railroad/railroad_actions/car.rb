@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Car
   attr_reader :number, :type
 
@@ -5,7 +7,7 @@ class Car
 
   def initialize(number, type)
     @number = number
-    type == "passenger" ? @type = type : @type = "cargo"
+    @type = type == 'passenger' ? type : 'cargo'
     @@cars << self
   end
 

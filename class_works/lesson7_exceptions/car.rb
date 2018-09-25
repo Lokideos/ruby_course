@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
 module FuelTank
   def fill_tank(level)
     self.fuel_tank = level
   end
 
   def fuel_level
-    self.fuel_tank
+    fuel_tank
   end
 
   protected
+
   attr_accessor :fuel_tank
 end
 
@@ -69,7 +72,7 @@ class Car
 
   def valid?
     validate!
-  rescue
+  rescue StandardError
     false
   end
 
@@ -82,8 +85,9 @@ class Car
 
   def validate!
     raise "Number can't be nil!" if number.nil?
-    raise "Number should be at least 6 symbols" if number.length < 6
-    raise "Number has invalid format" if number !~ NUMBER_FORMAT
+    raise 'Number should be at least 6 symbols' if number.length < 6
+    raise 'Number has invalid format' if number !~ NUMBER_FORMAT
+
     true
   end
 
@@ -95,7 +99,6 @@ class Car
     self.current_rpm = initial_rpm
   end
 end
-
 
 class MotorBike
   include FuelTank

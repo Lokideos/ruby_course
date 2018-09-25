@@ -1,18 +1,20 @@
+# frozen_string_literal: true
+
 require_relative '../railroad_actions/railroad_actions_support'
 
 class RouteUI
   ROUTE_UI_MENU_ITEMS = {
-    1 => "Add new route.",
-    2 => "Add station to route.",
-    3 => "Delete station from route.",
-    4 => "Show stations on route.",
-    5 => "Show all existing routes.",
-    6 => "Back to Railroad application main menu."
-  }
+    1 => 'Add new route.',
+    2 => 'Add station to route.',
+    3 => 'Delete station from route.',
+    4 => 'Show stations on route.',
+    5 => 'Show all existing routes.',
+    6 => 'Back to Railroad application main menu.'
+  }.freeze
 
   def self.show_menu
     loop do
-      puts "________________________________________________"
+      puts '________________________________________________'
       CommonMenuOptions.show_menu_items(ROUTE_UI_MENU_ITEMS)
       menu_choice = gets.chomp.to_i
       puts
@@ -26,7 +28,7 @@ class RouteUI
         second_station = gets.chomp
         first_station = Station.existing_stations.find { |station| station.name == first_station }
         second_station = Station.existing_stations.find { |station| station.name == second_station }
-        if first_station.class.to_s == "Station" && second_station.class.to_s == "Station"
+        if first_station.class.to_s == 'Station' && second_station.class.to_s == 'Station'
           Route.new(first_station, second_station)
           puts RouteUIOptions.route_created_ad
         else
@@ -35,7 +37,7 @@ class RouteUI
       when 2
         chosen_route = find_route
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_route
           puts
           puts RouteUIOptions.route_does_not_exist
@@ -48,7 +50,7 @@ class RouteUI
         puts RouteUIOptions.add_station_to_route_prompt
         chosen_station = gets.chomp
         chosen_station = Station.existing_stations.find { |station| station.name == chosen_station }
-        if chosen_station.class.to_s == "Station"
+        if chosen_station.class.to_s == 'Station'
           puts RouteUIOptions.station_add_to_route_ad
           chosen_route.add_station(chosen_station)
         else
@@ -57,7 +59,7 @@ class RouteUI
       when 3
         chosen_route = find_route
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_route
           puts
           puts RouteUIOptions.route_does_not_exist
@@ -69,16 +71,16 @@ class RouteUI
         puts RouteUIOptions.choose_station_to_delete_prompt
         chosen_station = gets.chomp
         chosen_station = chosen_route.stations.find { |station| station.name == chosen_station }
-        if chosen_station.class.to_s == "Station" 
+        if chosen_station.class.to_s == 'Station'
           puts RouteUIOptions.station_deleted_ad
-          chosen_route.stations.each { |station| chosen_route.remove_station(chosen_station) }
+          chosen_route.stations.each { |_station| chosen_route.remove_station(chosen_station) }
         else
           puts RouteUIOptions.wrong_station_names_ad
         end
       when 4
         chosen_route = find_route
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_route
           puts
           puts RouteUIOptions.route_does_not_exist

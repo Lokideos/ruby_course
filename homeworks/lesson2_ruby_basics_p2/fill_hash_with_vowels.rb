@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FillHashWithVowels
   ALPHABET = ('a'..'z').to_a
   VOWELS = /[aeiou]/

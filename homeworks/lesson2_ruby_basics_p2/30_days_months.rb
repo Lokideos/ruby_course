@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ThirtyDaysMonths
   MONTHS = {
     january: 31,
@@ -12,8 +14,8 @@ class ThirtyDaysMonths
     october: 31,
     november: 30,
     december: 31
-  }
-  
+  }.freeze
+
   def self.print_30_days_months
     MONTHS.each { |month, days| puts month.to_s if days == 30 }
   end

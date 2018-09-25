@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require_relative '../railroad_actions/railroad_actions_support'
 
 class StationUI
   STATION_UI_MENU_ITEMS = {
-    1 => "Add new station.",
-    2 => "Assign train to station.",
-    3 => "Delete train from station.",
-    4 => "Show trains on station.",
-    5 => "Show trains on station by type.",
-    6 => "Show existing stations.",
-    7 => "Back to Railroad application main menu."
-  }
+    1 => 'Add new station.',
+    2 => 'Assign train to station.',
+    3 => 'Delete train from station.',
+    4 => 'Show trains on station.',
+    5 => 'Show trains on station by type.',
+    6 => 'Show existing stations.',
+    7 => 'Back to Railroad application main menu.'
+  }.freeze
 
   def self.show_menu
     loop do
-      puts "________________________________________________"
+      puts '________________________________________________'
       CommonMenuOptions.show_menu_items(STATION_UI_MENU_ITEMS)
       menu_choice = gets.chomp.to_i
       puts
@@ -26,7 +28,7 @@ class StationUI
       when 2
         chosen_station = find_station
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_station
           puts
           puts StationUIOptions.station_does_not_exist
@@ -41,7 +43,7 @@ class StationUI
       when 3
         chosen_station = find_station
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_station
           puts
           puts StationUIOptions.station_does_not_exist
@@ -56,7 +58,7 @@ class StationUI
       when 4
         chosen_station = find_station
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_station
           puts
           puts StationUIOptions.station_does_not_exist
@@ -69,7 +71,7 @@ class StationUI
       when 5
         chosen_station = find_station
 
-        #find a way to move nil check to private methods
+        # find a way to move nil check to private methods
         unless chosen_station
           puts
           puts StationUIOptions.station_does_not_exist

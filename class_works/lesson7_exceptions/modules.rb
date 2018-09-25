@@ -1,4 +1,6 @@
-#namespace
+# frozen_string_literal: true
+
+# namespace
 
 # module Admin
 #   class Car

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class FillArrayWithFibonacciNumbers
-  FIRST_FIBONACCI_NUMBERS = [0, 1, 1]
+  FIRST_FIBONACCI_NUMBERS = [0, 1, 1].freeze
 
   def initialize(upper_limit = 100)
     @upper_limit = upper_limit

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class RightTriangle
   def initialize(a, b, c)
     @a = a
     @b = b
     @c = c
-  end  
+  end
 
   def is_right?
     @hypotenuse**2 == @catheter1**2 + @catheter2**2

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Car
   attr_accessor :speed
 
@@ -9,11 +11,11 @@ class Car
   end
 
   def start_engine
-    puts "Wroom!"
+    puts 'Wroom!'
   end
 
   def beep
-    puts "beep beep"
+    puts 'beep beep'
   end
 
   def stop
